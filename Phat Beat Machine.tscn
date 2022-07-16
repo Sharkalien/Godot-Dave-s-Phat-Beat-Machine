@@ -240,6 +240,13 @@ margin_bottom = 324.0
 stream = ExtResource( 17 )
 bus = "Beat 16"
 
+[node name="ProfessionalismButton" type="TextureButton" parent="."]
+margin_left = 475.0
+margin_top = 113.0
+margin_right = 495.0
+margin_bottom = 121.0
+mouse_default_cursor_shape = 2
+
 [editable path="mKnob"]
 [editable path="Beats/BeatButton1"]
 [editable path="Beats/BeatButton2"]
