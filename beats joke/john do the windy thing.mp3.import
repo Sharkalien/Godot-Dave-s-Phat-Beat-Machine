@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/john do the windy thing.mp3-819536c8dfc6fd5f588ad0c62683e130.mp3str"
+
+[deps]
+
+source_file="res://beats joke/john do the windy thing.mp3"
+dest_files=[ "res://.import/john do the windy thing.mp3-819536c8dfc6fd5f588ad0c62683e130.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

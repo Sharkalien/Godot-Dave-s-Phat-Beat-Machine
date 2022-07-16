@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ghostbusters.mp3-2f394f84555bb6333c6cd00d27523ef4.mp3str"
+
+[deps]
+
+source_file="res://beats joke/Ghostbusters.mp3"
+dest_files=[ "res://.import/Ghostbusters.mp3-2f394f84555bb6333c6cd00d27523ef4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

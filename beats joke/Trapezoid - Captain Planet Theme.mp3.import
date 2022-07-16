@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Trapezoid - Captain Planet Theme.mp3-0e7a5ddba8637e6e73688f12b2ae7129.mp3str"
+
+[deps]
+
+source_file="res://beats joke/Trapezoid - Captain Planet Theme.mp3"
+dest_files=[ "res://.import/Trapezoid - Captain Planet Theme.mp3-0e7a5ddba8637e6e73688f12b2ae7129.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

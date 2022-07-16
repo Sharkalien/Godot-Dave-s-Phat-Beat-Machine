@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/beat 12 bol.mp3-96f63afa357eb4966b1ac5397d7751f0.mp3str"
+
+[deps]
+
+source_file="res://beats bol/beat 12 bol.mp3"
+dest_files=[ "res://.import/beat 12 bol.mp3-96f63afa357eb4966b1ac5397d7751f0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

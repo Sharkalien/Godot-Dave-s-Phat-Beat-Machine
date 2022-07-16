@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/beat 6.mp3-67d3d14c96ce4fd663a0a3837779b44a.mp3str"
+
+[deps]
+
+source_file="res://beats/beat 6.mp3"
+dest_files=[ "res://.import/beat 6.mp3-67d3d14c96ce4fd663a0a3837779b44a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
