@@ -1,16 +1,26 @@
 extends Node2D
 
 onready var mKnob = $mKnob
+onready var iKnob = $iKnob
 
+var vols : Array
+var playin : Array
+var saves : Array
+var jokeSongs : Array
+var bbBeats : Array
+var curFunc : int = 0
 var mVol : bool = false
 var iVol : bool = false
 var rot = 0
 var rott = 0
 var rDiff = 180 / PI
+var delay : int
+var select : int = 0
 
 
 func _ready():
-	pass
+	iKnob.spin.rotation_degrees = -179
+	mKnob.spin.rotation_degrees = -179
 
 func _process(_delta):
 	mouseMove()

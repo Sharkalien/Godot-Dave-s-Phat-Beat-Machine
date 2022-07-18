@@ -370,6 +370,13 @@ margin_right = 495.0
 margin_bottom = 121.0
 mouse_default_cursor_shape = 2
 
+[node name="CManButton" type="TextureButton" parent="."]
+margin_left = 513.0
+margin_top = 113.0
+margin_right = 532.0
+margin_bottom = 121.0
+mouse_default_cursor_shape = 2
+
 [editable path="mKnob"]
 [editable path="Beats/BeatButton1"]
 [editable path="Beats/BeatButton2"]

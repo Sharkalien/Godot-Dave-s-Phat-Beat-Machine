@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://images/dial.png" type="Texture" id=1]
+[ext_resource path="res://Dial.gd" type="Script" id=2]
 
 [node name="Dial" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="spin" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+flip_v = true
