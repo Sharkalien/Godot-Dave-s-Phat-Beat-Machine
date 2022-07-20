@@ -3,11 +3,11 @@ extends Node2D
 onready var mKnob = $mKnob
 onready var iKnob = $iKnob
 
-var vols : Array
-var playin : Array
-var saves : Array
-var jokeSongs : Array
-var bbBeats : Array
+var vols : Array = []
+var playin : Array = []
+var saves : Array = []
+var jokeSongs : Array = []
+onready var bbBeats : Array = [$Beats/BeatButton6,$Beats/BeatButton7,$Beats/BeatButton12,$Beats/BeatButton13,$Beats/BeatButton14,$Beats/BeatButton15,$Beats/BeatButton16]
 var curFunc : int = 0
 var mVol : bool = false
 var iVol : bool = false
@@ -39,3 +39,12 @@ func mouseMove():
 		if degrees > 0 && mKnob.get_node("spin").rotation_degrees < -90:
 			degrees = -179.9
 		mKnob.get_node("spin").rotation_degrees = degrees
+
+
+func _on_ProfessionalismButton_toggled(button_pressed):
+	if button_pressed:
+		for i in bbBeats:
+			i.audPlayer.stream.resource_path = i.audPlayer.stream.resource_path.replace(".mp3", " bol.mp3")
+			print(i.audPlayer.stream.resource_path.replace(".mp3", " bol.mp3"))
+	else:
+		pass

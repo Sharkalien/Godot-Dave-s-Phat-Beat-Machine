@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://images/phatbeatmachine.png" type="Texture" id=1]
 [ext_resource path="res://Phat Beat Machine.gd" type="Script" id=2]
@@ -27,6 +27,12 @@
 [ext_resource path="res://images/dialMaster.png" type="Texture" id=25]
 [ext_resource path="res://images/screen mask.png" type="Texture" id=26]
 [ext_resource path="res://verdana.ttf" type="DynamicFontData" id=27]
+[ext_resource path="res://images/ref 3.PNG" type="Texture" id=28]
+[ext_resource path="res://JokeButton.tscn" type="PackedScene" id=29]
+[ext_resource path="res://beats joke/mspa_harlequin.mp3" type="AudioStream" id=30]
+[ext_resource path="res://beats joke/Aerosmith_-_I_Dont_Wanna_Miss_A_Thing.mp3" type="AudioStream" id=31]
+[ext_resource path="res://beats joke/Ghostbusters.mp3" type="AudioStream" id=32]
+[ext_resource path="res://beats joke/cp_close.mp3" type="AudioStream" id=33]
 
 [sub_resource type="CanvasItemMaterial" id=2]
 light_mode = 2
@@ -122,6 +128,16 @@ tracks/1/keys = {
 "values": [ "Dave's Phat Beat Machine ::: All this fresh code freestylin busted out by \"Sharkalien\" in Godot based on Aria \"Gankra\" Beingessner's original ActionScript code ::: Samples are straight up original jams by (left to right across rows) ::: 01 - Andrew Hussie ::: 02 - Andrew Hussie ::: 03 - Gabe Nezovic ::: 04 - Robert Blaker  ::: 05 - Gabe Nezovic ::: 06 - Bill Bolin ::: 07 - Bill Bolin ::: 08 - \"xerxes333\" ::: 09 - \"xerxes333\" ::: 10 - Robert Blaker  ::: 11 - Gabe Nezovic ::: 12 - Bill Bolin ::: 13 - Bill Bolin ::: 14 - Bill Bolin ::: 15 - Bill Bolin ::: 16 - Bill Bolin ::::::: Special thanks to Bill Bolin for mastering all these clips and getting them to sync up! ::::::::::::l" ]
 }
 
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 102, 144, 0, 0, 0, 0, 99, 170 )
+}
+
+[sub_resource type="DynamicFont" id=7]
+size = 64
+extra_spacing_top = -2
+font_data = ExtResource( 27 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -157,6 +173,19 @@ mode = 2
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Path2D" type="Path2D" parent="."]
+visible = false
+curve = SubResource( 6 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 102, 144 )
+rotation = 1.68568
+rotate = false
+
+[node name="Q1Slider2" type="Sprite" parent="Path2D/PathFollow2D"]
+rotation = -1.66727
+texture = ExtResource( 3 )
 
 [node name="Q1Slider" type="Sprite" parent="."]
 position = Vector2( 102, 144 )
@@ -197,6 +226,15 @@ __meta__ = {
 visible = false
 position = Vector2( 327, 201 )
 texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ref3" type="Sprite" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.411765 )
+position = Vector2( 534, 322 )
+texture = ExtResource( 28 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -369,6 +407,7 @@ margin_top = 113.0
 margin_right = 495.0
 margin_bottom = 121.0
 mouse_default_cursor_shape = 2
+toggle_mode = true
 
 [node name="CManButton" type="TextureButton" parent="."]
 margin_left = 513.0
@@ -376,6 +415,69 @@ margin_top = 113.0
 margin_right = 532.0
 margin_bottom = 121.0
 mouse_default_cursor_shape = 2
+
+[node name="\?\?\?\?\?\?\?\?\?\?\?" type="Label" parent="."]
+margin_left = 673.0
+margin_top = 9.0
+margin_right = 1058.0
+margin_bottom = 662.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "???????????
+???????????
+???????????
+???????????
+???????????
+???????????
+???????????
+???????????"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="JokeButton1" parent="." instance=ExtResource( 29 )]
+margin_left = 10.0
+margin_top = 456.0
+margin_right = 114.0
+margin_bottom = 517.0
+
+[node name="AudioStreamPlayer" parent="JokeButton1" index="0"]
+stream = ExtResource( 30 )
+
+[node name="JokeButton2" parent="." instance=ExtResource( 29 )]
+margin_left = 191.0
+margin_top = 456.0
+margin_right = 295.0
+margin_bottom = 517.0
+
+[node name="AudioStreamPlayer" parent="JokeButton2" index="0"]
+stream = ExtResource( 33 )
+
+[node name="JokeButton3" parent="." instance=ExtResource( 29 )]
+margin_left = 370.0
+margin_top = 456.0
+margin_right = 474.0
+margin_bottom = 517.0
+
+[node name="AudioStreamPlayer" parent="JokeButton3" index="0"]
+stream = ExtResource( 32 )
+
+[node name="JokeButton4" parent="." instance=ExtResource( 29 )]
+margin_left = 537.0
+margin_top = 456.0
+margin_right = 641.0
+margin_bottom = 517.0
+
+[node name="AudioStreamPlayer" parent="JokeButton4" index="0"]
+stream = ExtResource( 31 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 1.25, 1.25 )
+smoothing_enabled = true
+
+[connection signal="toggled" from="ProfessionalismButton" to="." method="_on_ProfessionalismButton_toggled"]
 
 [editable path="mKnob"]
 [editable path="Beats/BeatButton1"]
@@ -394,3 +496,7 @@ mouse_default_cursor_shape = 2
 [editable path="Beats/BeatButton14"]
 [editable path="Beats/BeatButton15"]
 [editable path="Beats/BeatButton16"]
+[editable path="JokeButton1"]
+[editable path="JokeButton2"]
+[editable path="JokeButton3"]
+[editable path="JokeButton4"]
