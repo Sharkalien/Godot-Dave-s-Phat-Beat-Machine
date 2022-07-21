@@ -7,8 +7,8 @@ var vols : Array = []
 var playin : Array = []
 var saves : Array = []
 onready var jokeSongs : Array = [$Beats/JokeButton1,$Beats/JokeButton2,$Beats/JokeButton3,$Beats/JokeButton4]
-var jokeSongsB : Array = ["res://beats joke/mspa_harlequin.mp3","res://beats joke/cp_close.mp3","res://beats joke/Ghostbusters.mp3","res://beats joke/Aerosmith_-_I_Dont_Wanna_Miss_A_Thing.mp3"]
-var jokeSongsC : Array = ["res://beats joke/john do the windy thing.mp3","res://beats joke/Trapezoid - Captain Planet Theme.mp3","res://beats joke/Bustin.mp3","res://beats joke/Aerolong (Beta Mix) - Mouth Dreams.mp3"]
+var jokeSongsB : Array = ["res://beats joke/mspa_harlequin.mp3","res://beats joke/cp_close.mp3","res://beats joke/Bustin.mp3","res://beats joke/Aerosmith_-_I_Dont_Wanna_Miss_A_Thing.mp3"]
+var jokeSongsC : Array = ["res://beats joke/john do the windy thing.mp3","res://beats joke/Trapezoid - Captain Planet Theme.mp3","res://beats joke/Busting Makes Me Feel Good.mp3","res://beats joke/Aerolong (Beta Mix) - Mouth Dreams.mp3"]
 onready var bbBeats : Array = [$Beats/BeatButton6,$Beats/BeatButton7,$Beats/BeatButton12,$Beats/BeatButton13,$Beats/BeatButton14,$Beats/BeatButton15,$Beats/BeatButton16]
 var curFunc : int = 0
 var mVol : bool = false
@@ -36,11 +36,11 @@ func mouseMove():
 			degrees -= 360
 		while degrees < 180:
 			degrees -= 360
-		if degrees < 0 && mKnob.get_node("spin").rotation_degrees > 90:
+		if degrees < 0 && mKnob.spin.rotation_degrees > 90:
 			degrees = 179.9
-		if degrees > 0 && mKnob.get_node("spin").rotation_degrees < -90:
+		if degrees > 0 && mKnob.spin.rotation_degrees < -90:
 			degrees = -179.9
-		mKnob.get_node("spin").rotation_degrees = degrees
+		mKnob.spin.rotation_degrees = degrees
 
 
 func _on_ProfessionalismButton_toggled(button_pressed):
@@ -73,7 +73,7 @@ func _on_ProfessionalismButton_toggled(button_pressed):
 					i.bButton.self_modulate = Color(1.00, 1.00, 1.00, 1.00)
 		$ScreenLabel/AnimationPlayer.play("Scroll")
 
-# for some reason, toggling the button while a track is playing will occasionaly crash the game
+# for some reason, toggling the button while a track is playing will occasionaly freeze crash the game
 # only some of the time
 func _on_CManButton_toggled(button_pressed):
 	if button_pressed:
