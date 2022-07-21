@@ -42,35 +42,26 @@ func mouseMove():
 			degrees = -179.9
 		mKnob.spin.rotation_degrees = degrees
 
+func swapPath(orig: String, new:String):
+	for i in bbBeats:
+		var path = i.audPlayer.stream.resource_path.replace(orig, new)
+		print(path)
+		var file = File.new()
+		if file.file_exists(path):
+			file.open(path, File.READ)
+			var buffer = file.get_buffer(file.get_len())
+			var stream = i.audPlayer.stream
+			stream.data = buffer
+			i.audPlayer.stream = stream
+			if !i.audPlayer.playing:
+				i.bButton.self_modulate = Color(1.00, 1.00, 1.00, 1.00)
 
 func _on_ProfessionalismButton_toggled(button_pressed):
 	if button_pressed:
-		for i in bbBeats:
-			var path = i.audPlayer.stream.resource_path.replace(".mp3", " bol.mp3")
-			print(path)
-			var file = File.new()
-			if file.file_exists(path):
-				file.open(path, File.READ)
-				var buffer = file.get_buffer(file.get_len())
-				var stream = i.audPlayer.stream
-				stream.data = buffer
-				i.audPlayer.stream = stream
-				if !i.audPlayer.playing:
-					i.bButton.self_modulate = Color(1.00, 1.00, 1.00, 1.00)
+		swapPath(".mp3", " bol.mp3")
 		$ScreenLabel/AnimationPlayer.play("Scroll Bol")
 	elif !button_pressed:
-		for i in bbBeats:
-			var path = i.audPlayer.stream.resource_path.replace(" bol.mp3", ".mp3")
-			print(path)
-			var file = File.new()
-			if file.file_exists(path):
-				file.open(path, File.READ)
-				var buffer = file.get_buffer(file.get_len())
-				var stream = i.audPlayer.stream
-				stream.data = buffer
-				i.audPlayer.stream = stream
-				if !i.audPlayer.playing:
-					i.bButton.self_modulate = Color(1.00, 1.00, 1.00, 1.00)
+		swapPath(" bol.mp3", ".mp3")
 		$ScreenLabel/AnimationPlayer.play("Scroll")
 
 # for some reason, toggling the button while a track is playing will occasionaly freeze crash the game
