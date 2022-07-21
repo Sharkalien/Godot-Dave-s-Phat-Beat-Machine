@@ -29,10 +29,10 @@
 [ext_resource path="res://verdana.ttf" type="DynamicFontData" id=27]
 [ext_resource path="res://images/ref 3.PNG" type="Texture" id=28]
 [ext_resource path="res://JokeButton.tscn" type="PackedScene" id=29]
-[ext_resource path="res://beats joke/Busting Makes Me Feel Good.mp3" type="AudioStream" id=30]
-[ext_resource path="res://beats joke/Aerolong (Beta Mix) - Mouth Dreams.mp3" type="AudioStream" id=31]
-[ext_resource path="res://beats joke/john do the windy thing.mp3" type="AudioStream" id=32]
-[ext_resource path="res://beats joke/Trapezoid - Captain Planet Theme.mp3" type="AudioStream" id=33]
+[ext_resource path="res://beats joke/Ghostbusters.mp3" type="AudioStream" id=30]
+[ext_resource path="res://beats joke/Aerosmith_-_I_Dont_Wanna_Miss_A_Thing.mp3" type="AudioStream" id=31]
+[ext_resource path="res://beats joke/cp_close.mp3" type="AudioStream" id=32]
+[ext_resource path="res://beats joke/mspa_harlequin.mp3" type="AudioStream" id=33]
 
 [sub_resource type="CanvasItemMaterial" id=2]
 light_mode = 2
@@ -461,7 +461,7 @@ margin_bottom = 517.0
 custom_styles/panel = SubResource( 8 )
 
 [node name="AudioStreamPlayer" parent="Beats/JokeButton1" index="0"]
-stream = ExtResource( 32 )
+stream = ExtResource( 33 )
 
 [node name="JokeButton2" parent="Beats" instance=ExtResource( 29 )]
 margin_left = 191.0
@@ -471,7 +471,7 @@ margin_bottom = 517.0
 custom_styles/panel = SubResource( 9 )
 
 [node name="AudioStreamPlayer" parent="Beats/JokeButton2" index="0"]
-stream = ExtResource( 33 )
+stream = ExtResource( 32 )
 
 [node name="JokeButton3" parent="Beats" instance=ExtResource( 29 )]
 margin_left = 370.0
@@ -507,6 +507,7 @@ margin_top = 113.0
 margin_right = 532.0
 margin_bottom = 121.0
 mouse_default_cursor_shape = 2
+toggle_mode = true
 
 [node name="\?\?\?\?\?\?\?\?\?\?\?" type="Label" parent="."]
 margin_left = 673.0
@@ -534,6 +535,7 @@ zoom = Vector2( 1.25, 1.25 )
 smoothing_enabled = true
 
 [connection signal="toggled" from="ProfessionalismButton" to="." method="_on_ProfessionalismButton_toggled"]
+[connection signal="toggled" from="CManButton" to="." method="_on_CManButton_toggled"]
 
 [editable path="mKnob"]
 [editable path="Beats/BeatButton1"]

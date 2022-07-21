@@ -6,7 +6,9 @@ onready var iKnob = $iKnob
 var vols : Array = []
 var playin : Array = []
 var saves : Array = []
-var jokeSongs : Array = []
+onready var jokeSongs : Array = [$Beats/JokeButton1,$Beats/JokeButton2,$Beats/JokeButton3,$Beats/JokeButton4]
+var jokeSongsB : Array = ["res://beats joke/mspa_harlequin.mp3","res://beats joke/cp_close.mp3","res://beats joke/Ghostbusters.mp3","res://beats joke/Aerosmith_-_I_Dont_Wanna_Miss_A_Thing.mp3"]
+var jokeSongsC : Array = ["res://beats joke/john do the windy thing.mp3","res://beats joke/Trapezoid - Captain Planet Theme.mp3","res://beats joke/Bustin.mp3","res://beats joke/Aerolong (Beta Mix) - Mouth Dreams.mp3"]
 onready var bbBeats : Array = [$Beats/BeatButton6,$Beats/BeatButton7,$Beats/BeatButton12,$Beats/BeatButton13,$Beats/BeatButton14,$Beats/BeatButton15,$Beats/BeatButton16]
 var curFunc : int = 0
 var mVol : bool = false
@@ -70,3 +72,35 @@ func _on_ProfessionalismButton_toggled(button_pressed):
 				if !i.audPlayer.playing:
 					i.bButton.self_modulate = Color(1.00, 1.00, 1.00, 1.00)
 		$ScreenLabel/AnimationPlayer.play("Scroll")
+
+# for some reason, toggling the button while a track is playing will occasionaly crash the game
+# only some of the time
+func _on_CManButton_toggled(button_pressed):
+	if button_pressed:
+		for i in jokeSongs:
+			var path = i.audPlayer.stream.resource_path.replace(i.audPlayer.stream.resource_path, jokeSongsC[jokeSongs.find(i,0)])
+			print(path)
+			var file = File.new()
+			if file.file_exists(path):
+				file.open(path, File.READ)
+				var buffer = file.get_buffer(file.get_len())
+				var stream = i.audPlayer.stream
+				stream.data = buffer
+				i.audPlayer.stream = stream
+				if !i.audPlayer.playing:
+					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_bg_color(Color(1.00, 1.00, 1.00, 1.00))
+					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_border_color(Color(0.8, 0.8, 0.8, 1.00))
+	elif !button_pressed:
+		for i in jokeSongs:
+			var path = i.audPlayer.stream.resource_path.replace(i.audPlayer.stream.resource_path, jokeSongsB[jokeSongs.find(i,0)])
+			print(path)
+			var file = File.new()
+			if file.file_exists(path):
+				file.open(path, File.READ)
+				var buffer = file.get_buffer(file.get_len())
+				var stream = i.audPlayer.stream
+				stream.data = buffer
+				i.audPlayer.stream = stream
+				if !i.audPlayer.playing:
+					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_bg_color(Color(1.00, 1.00, 1.00, 1.00))
+					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_border_color(Color(0.8, 0.8, 0.8, 1.00))
