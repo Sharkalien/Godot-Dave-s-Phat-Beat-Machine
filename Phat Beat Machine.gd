@@ -53,6 +53,20 @@ func _on_ProfessionalismButton_toggled(button_pressed):
 				var stream = i.audPlayer.stream
 				stream.data = buffer
 				i.audPlayer.stream = stream
+				if !i.audPlayer.playing:
+					i.bButton.self_modulate = Color(1.00, 1.00, 1.00, 1.00)
 		$ScreenLabel/AnimationPlayer.play("Scroll Bol")
-	else:
-		pass
+	elif !button_pressed:
+		for i in bbBeats:
+			var path = i.audPlayer.stream.resource_path.replace(" bol.mp3", ".mp3")
+			print(path)
+			var file = File.new()
+			if file.file_exists(path):
+				file.open(path, File.READ)
+				var buffer = file.get_buffer(file.get_len())
+				var stream = i.audPlayer.stream
+				stream.data = buffer
+				i.audPlayer.stream = stream
+				if !i.audPlayer.playing:
+					i.bButton.self_modulate = Color(1.00, 1.00, 1.00, 1.00)
+		$ScreenLabel/AnimationPlayer.play("Scroll")
