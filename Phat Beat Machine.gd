@@ -44,7 +44,15 @@ func mouseMove():
 func _on_ProfessionalismButton_toggled(button_pressed):
 	if button_pressed:
 		for i in bbBeats:
-			i.audPlayer.stream.resource_path = i.audPlayer.stream.resource_path.replace(".mp3", " bol.mp3")
-			print(i.audPlayer.stream.resource_path.replace(".mp3", " bol.mp3"))
+			var path = i.audPlayer.stream.resource_path.replace(".mp3", " bol.mp3")
+			print(path)
+			var file = File.new()
+			if file.file_exists(path):
+				file.open(path, File.READ)
+				var buffer = file.get_buffer(file.get_len())
+				var stream = i.audPlayer.stream
+				stream.data = buffer
+				i.audPlayer.stream = stream
+		$ScreenLabel/AnimationPlayer.play("Scroll Bol")
 	else:
 		pass
