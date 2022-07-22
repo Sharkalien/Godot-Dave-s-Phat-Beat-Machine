@@ -259,7 +259,7 @@ position = Vector2( 465, 76 )
 scale = Vector2( 0.652, 0.515 )
 
 [node name="mKnob" parent="." instance=ExtResource( 5 )]
-position = Vector2( 539, 76 )
+position = Vector2( 538, 76 )
 scale = Vector2( 0.652, 0.515 )
 
 [node name="spin" parent="mKnob" index="0"]
