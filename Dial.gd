@@ -1,3 +1,3 @@
-extends Node2D
+extends TextureButton
 
 onready var spin = $spin

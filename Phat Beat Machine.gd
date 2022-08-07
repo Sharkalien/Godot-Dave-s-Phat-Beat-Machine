@@ -25,20 +25,22 @@ func _ready():
 	mKnob.spin.rotation_degrees = -179
 
 func _process(_delta):
-	pass
+	if Input.is_action_just_pressed("click"):
+		mouseMoveMasterVol()
 
 func mouseMoveMasterVol():
 	var degrees = 0
-	degrees = rot + (rott - atan2(get_global_mouse_position().y - mKnob.position.y, get_global_mouse_position().x - mKnob.position.x) * rDiff)
-	while degrees > 180:
-		degrees -= 360
-	while degrees < 180:
-		degrees -= 360
+	degrees = rot + (rott - atan2(get_global_mouse_position().y - mKnob.rect_position.y, get_global_mouse_position().x - mKnob.rect_position.x) * rDiff)
+#	while degrees > 180:
+#		degrees -= 360
+#	while degrees < 180:
+#		degrees -= 360
 	if degrees < 0 && mKnob.spin.rotation_degrees > 90:
 		degrees = 179.9
 	if degrees > 0 && mKnob.spin.rotation_degrees < -90:
 		degrees = -179.9
 	mKnob.spin.rotation_degrees = degrees
+	print("poo")
 
 func swapPath(orig: String, new:String):
 	for i in bbBeats:
