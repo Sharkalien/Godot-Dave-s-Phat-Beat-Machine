@@ -24,9 +24,11 @@ func _ready():
 	iKnob.spin.rotation_degrees = -179
 	mKnob.spin.rotation_degrees = -179
 
-func _process(_delta):
-	if Input.is_action_just_pressed("click"):
-		mouseMoveMasterVol()
+
+#func _process(_delta):
+#	if Input.is_action_just_pressed("click"):
+#		mouseMoveMasterVol()
+
 
 func mouseMoveMasterVol():
 	var degrees = 0
@@ -42,6 +44,7 @@ func mouseMoveMasterVol():
 	mKnob.spin.rotation_degrees = degrees
 	print("poo")
 
+
 func swapPath(orig: String, new:String):
 	for i in bbBeats:
 		var path = i.audPlayer.stream.resource_path.replace(orig, new)
@@ -56,6 +59,7 @@ func swapPath(orig: String, new:String):
 			if !i.audPlayer.playing:
 				i.bButton.self_modulate = Color(1.00, 1.00, 1.00, 1.00)
 
+
 func _on_ProfessionalismButton_toggled(button_pressed):
 	if button_pressed:
 		swapPath(".mp3", " bol.mp3")
@@ -64,34 +68,27 @@ func _on_ProfessionalismButton_toggled(button_pressed):
 		swapPath(" bol.mp3", ".mp3")
 		$ScreenLabel/AnimationPlayer.play("Scroll")
 
+
+func replaceSongs(songsArray):
+	for i in jokeSongs:
+			var path = i.audPlayer.stream.resource_path.replace(i.audPlayer.stream.resource_path, songsArray[jokeSongs.find(i,0)])
+			print(path)
+			var file = File.new()
+			if file.file_exists(path):
+				file.open(path, File.READ)
+				var buffer = file.get_buffer(file.get_len())
+				var stream = i.audPlayer.stream
+				stream.data = buffer
+				i.audPlayer.stream = stream
+				if !i.audPlayer.playing:
+					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_bg_color(Color(1.00, 1.00, 1.00, 1.00))
+					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_border_color(Color(0.8, 0.8, 0.8, 1.00))
+
+
 # for some reason, toggling the button while a track is playing will occasionaly freeze crash the game
 # only some of the time
 func _on_CManButton_toggled(button_pressed):
 	if button_pressed:
-		for i in jokeSongs:
-			var path = i.audPlayer.stream.resource_path.replace(i.audPlayer.stream.resource_path, jokeSongsC[jokeSongs.find(i,0)])
-			print(path)
-			var file = File.new()
-			if file.file_exists(path):
-				file.open(path, File.READ)
-				var buffer = file.get_buffer(file.get_len())
-				var stream = i.audPlayer.stream
-				stream.data = buffer
-				i.audPlayer.stream = stream
-				if !i.audPlayer.playing:
-					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_bg_color(Color(1.00, 1.00, 1.00, 1.00))
-					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_border_color(Color(0.8, 0.8, 0.8, 1.00))
+		replaceSongs(jokeSongsC)
 	elif !button_pressed:
-		for i in jokeSongs:
-			var path = i.audPlayer.stream.resource_path.replace(i.audPlayer.stream.resource_path, jokeSongsB[jokeSongs.find(i,0)])
-			print(path)
-			var file = File.new()
-			if file.file_exists(path):
-				file.open(path, File.READ)
-				var buffer = file.get_buffer(file.get_len())
-				var stream = i.audPlayer.stream
-				stream.data = buffer
-				i.audPlayer.stream = stream
-				if !i.audPlayer.playing:
-					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_bg_color(Color(1.00, 1.00, 1.00, 1.00))
-					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_border_color(Color(0.8, 0.8, 0.8, 1.00))
+		replaceSongs(jokeSongsB)
