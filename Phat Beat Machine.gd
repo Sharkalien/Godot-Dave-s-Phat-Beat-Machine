@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var mKnob = $mKnob
-onready var iKnob = $iKnob
+onready var mKnob = $mKnob # master volume
+onready var iKnob = $iKnob # individual sample volume
 
 var vols : Array = []
 var playin : Array = []
@@ -21,9 +21,6 @@ onready var bbBeats : Array = [
 	$Beats/BeatButton6,$Beats/BeatButton7,$Beats/BeatButton12,
 	$Beats/BeatButton13,$Beats/BeatButton14,$Beats/BeatButton15,$Beats/BeatButton16]
 var curFunc : int = 0
-var rot = 0
-var rott = 0
-var rDiff = 180 / PI
 var delay : int
 var select : int = 0
 
@@ -33,27 +30,7 @@ func _ready():
 	mKnob.spin.rotation_degrees = -179
 
 
-#func _process(_delta):
-#	if Input.is_action_pressed("click"):
-#		mouseMoveMasterVol()
-
-
-func mouseMoveMasterVol():
-	var degrees = 0
-	degrees = rot + (rott - atan2(get_global_mouse_position().y - mKnob.rect_position.y, get_global_mouse_position().x - mKnob.rect_position.x) * rDiff)
-#	while degrees > 180:
-#		degrees -= 360
-#	while degrees < 180:
-#		degrees += 360
-	if degrees < 0 && mKnob.spin.rotation_degrees > 90:
-		degrees = 179.9
-	if degrees > 0 && mKnob.spin.rotation_degrees < -90:
-		degrees = -179.9
-	mKnob.spin.rotation_degrees = degrees
-	print(degrees)
-
-
-func swapPath(orig: String, new:String):
+func swapPath(orig:String, new:String):
 	for i in bbBeats:
 		var path = i.audPlayer.stream.resource_path.replace(orig, new)
 		print(path)
@@ -77,24 +54,25 @@ func _on_ProfessionalismButton_toggled(button_pressed):
 		$ScreenLabel/AnimationPlayer.play("Scroll")
 
 
-func replaceSongs(songsArray: Array):
+func replaceSongs(songsArray:Array):
 	for i in jokeSongs:
-			var path = i.audPlayer.stream.resource_path.replace(i.audPlayer.stream.resource_path, songsArray[jokeSongs.find(i,0)])
-			print(path)
-			var file = File.new()
-			if file.file_exists(path):
-				file.open(path, File.READ)
-				var buffer = file.get_buffer(file.get_len())
-				var stream = i.audPlayer.stream
-				stream.data = buffer
-				i.audPlayer.stream = stream
-				if !i.audPlayer.playing:
-					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_bg_color(Color(1.00, 1.00, 1.00, 1.00))
-					i.jButton.get("custom_styles/panel/StyleBoxFlat").set_border_color(Color(0.8, 0.8, 0.8, 1.00))
+		#maybe I should yield while finding i's index in the jokeSongs array before continuing execution??
+		var path = i.audPlayer.stream.resource_path.replace(i.audPlayer.stream.resource_path, songsArray[jokeSongs.find(i,0)])
+		print(path)
+		var file = File.new()
+		if file.file_exists(path):
+			file.open(path, File.READ)
+			var buffer = file.get_buffer(file.get_len())
+			var stream = i.audPlayer.stream
+			stream.data = buffer
+			i.audPlayer.stream = stream
+			if !i.audPlayer.playing:
+				i.get("custom_styles/panel/StyleBoxFlat").set_bg_color(Color(1.00, 1.00, 1.00, 1.00))
+				i.get("custom_styles/panel/StyleBoxFlat").set_border_color(Color(0.8, 0.8, 0.8, 1.00))
 
 
 # for some reason, toggling the button while a track is playing will occasionaly freeze crash the game
-# only some of the time
+# only if certain buttons are toggled
 func _on_CManButton_toggled(button_pressed):
 	if button_pressed:
 		replaceSongs(jokeSongsC)

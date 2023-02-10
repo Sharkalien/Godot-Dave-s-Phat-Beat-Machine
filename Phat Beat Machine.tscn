@@ -193,6 +193,9 @@ font_data = ExtResource( 27 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Phatbeatmachine" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -235,6 +238,7 @@ curve = SubResource( 6 )
 position = Vector2( 102, 144 )
 rotation = 1.68568
 rotate = false
+loop = false
 
 [node name="Q1Slider2" type="Sprite" parent="Path2D/PathFollow2D"]
 rotation = -1.66727
