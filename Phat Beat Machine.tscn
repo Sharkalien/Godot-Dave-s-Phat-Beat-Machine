@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://images/phatbeatmachine.png" type="Texture" id=1]
 [ext_resource path="res://Phat Beat Machine.gd" type="Script" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://beats joke/cp_close.mp3" type="AudioStream" id=32]
 [ext_resource path="res://beats joke/mspa_harlequin.mp3" type="AudioStream" id=33]
 [ext_resource path="res://images/button.png" type="Texture" id=34]
+[ext_resource path="res://QLinkSlider.gd" type="Script" id=35]
 
 [sub_resource type="CanvasItemMaterial" id=2]
 light_mode = 2
@@ -134,6 +135,11 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 102, 144, 0, 0, 0, 0, 99, 170 )
 }
 
+[sub_resource type="Curve2D" id=12]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 102, 144, 0, 0, 0, 0, 98, 178 )
+}
+
 [sub_resource type="StyleBoxFlat" id=8]
 resource_local_to_scene = true
 bg_color = Color( 1, 1, 1, 1 )
@@ -230,33 +236,45 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Path2D" type="Path2D" parent="."]
-visible = false
+[node name="Q1Path2D" type="Path2D" parent="."]
 curve = SubResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Q1Path2D"]
 position = Vector2( 102, 144 )
-rotation = 1.68568
 rotate = false
 loop = false
 
-[node name="Q1Slider2" type="Sprite" parent="Path2D/PathFollow2D"]
-rotation = -1.66727
-texture = ExtResource( 3 )
+[node name="Q1Slider" type="TextureButton" parent="Q1Path2D/PathFollow2D"]
+margin_left = -11.0
+margin_top = -17.0
+margin_right = 10.0
+margin_bottom = 16.0
+mouse_default_cursor_shape = 2
+action_mode = 0
+texture_normal = ExtResource( 3 )
+script = ExtResource( 35 )
 
-[node name="Q1Slider" type="Sprite" parent="."]
+[node name="Q2Path2D" type="Path2D" parent="."]
+position = Vector2( -12, 123 )
+curve = SubResource( 12 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Q2Path2D"]
 position = Vector2( 102, 144 )
-texture = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
+rotate = false
+loop = false
 
-[node name="Q2Slider" type="Sprite" parent="."]
-position = Vector2( 90, 268 )
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Q2Slider" type="TextureButton" parent="Q2Path2D/PathFollow2D"]
+margin_left = -11.0
+margin_top = -17.0
+margin_right = 10.0
+margin_bottom = 16.0
+mouse_default_cursor_shape = 2
+action_mode = 0
+texture_normal = ExtResource( 4 )
+script = ExtResource( 35 )
 
 [node name="iKnob" parent="." instance=ExtResource( 5 )]
 margin_left = 431.0
