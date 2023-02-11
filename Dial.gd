@@ -1,7 +1,7 @@
 extends TextureButton
 
 onready var spin = $spin
-var rot = -179.9
+var rot = -179
 var rott = 0
 var rDiff = 180 / PI
 
@@ -18,7 +18,7 @@ func _mouseMove() -> void:
 	if rotDegrees > 0 && spin.rotation_degrees < -90:
 		rotDegrees = -179.9
 	spin.rotation_degrees = rotDegrees
-	print(rotDegrees)
+#	print(rotDegrees)
 
 
 func _on_Dial_gui_input(_event: InputEvent) -> void:
@@ -27,6 +27,6 @@ func _on_Dial_gui_input(_event: InputEvent) -> void:
 
 
 func _on_Dial_button_down() -> void:
-	
 	rot = spin.rotation_degrees
+	print(rot)
 	rott = atan2(get_global_mouse_position().y - rect_position.y, get_global_mouse_position().x - rect_position.x) * rDiff

@@ -135,9 +135,9 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 102, 144, 0, 0, 0, 0, 99, 170 )
 }
 
-[sub_resource type="Curve2D" id=12]
+[sub_resource type="Curve2D" id=13]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 102, 144, 0, 0, 0, 0, 98, 178 )
+"points": PoolVector2Array( 0, 0, 0, 0, 90, 268, 0, 0, 0, 0, 85, 303 )
 }
 
 [sub_resource type="StyleBoxFlat" id=8]
@@ -238,6 +238,7 @@ __meta__ = {
 
 [node name="Q1Path2D" type="Path2D" parent="."]
 curve = SubResource( 6 )
+script = ExtResource( 35 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -255,14 +256,13 @@ margin_bottom = 16.0
 mouse_default_cursor_shape = 2
 action_mode = 0
 texture_normal = ExtResource( 3 )
-script = ExtResource( 35 )
 
 [node name="Q2Path2D" type="Path2D" parent="."]
-position = Vector2( -12, 123 )
-curve = SubResource( 12 )
+curve = SubResource( 13 )
+script = ExtResource( 35 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Q2Path2D"]
-position = Vector2( 102, 144 )
+position = Vector2( 90, 267 )
 rotate = false
 loop = false
 
@@ -274,7 +274,6 @@ margin_bottom = 16.0
 mouse_default_cursor_shape = 2
 action_mode = 0
 texture_normal = ExtResource( 4 )
-script = ExtResource( 35 )
 
 [node name="iKnob" parent="." instance=ExtResource( 5 )]
 margin_left = 431.0
@@ -569,6 +568,8 @@ current = true
 zoom = Vector2( 1.25, 1.25 )
 smoothing_enabled = true
 
+[connection signal="gui_input" from="Q1Path2D/PathFollow2D/Q1Slider" to="Q1Path2D" method="_on_QLSlider_gui_input"]
+[connection signal="gui_input" from="Q2Path2D/PathFollow2D/Q2Slider" to="Q2Path2D" method="_on_QLSlider_gui_input"]
 [connection signal="toggled" from="ProfessionalismButton" to="." method="_on_ProfessionalismButton_toggled"]
 [connection signal="toggled" from="CManButton" to="." method="_on_CManButton_toggled"]
 
