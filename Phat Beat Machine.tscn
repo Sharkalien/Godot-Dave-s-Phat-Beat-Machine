@@ -132,12 +132,12 @@ tracks/1/keys = {
 
 [sub_resource type="Curve2D" id=6]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 102, 144, 0, 0, 0, 0, 99, 170 )
+"points": PoolVector2Array( 0, 0, 0, 0, 98, 172, 0, 0, 0, 0, 102, 144 )
 }
 
 [sub_resource type="Curve2D" id=13]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 90, 268, 0, 0, 0, 0, 85, 303 )
+"points": PoolVector2Array( 0, 0, 0, 0, 84, 304, 0, 0, 0, 0, 90, 267 )
 }
 
 [sub_resource type="StyleBoxFlat" id=8]
@@ -245,6 +245,7 @@ __meta__ = {
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Q1Path2D"]
 position = Vector2( 102, 144 )
+offset = 28.2805
 rotate = false
 loop = false
 
@@ -263,6 +264,7 @@ script = ExtResource( 35 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Q2Path2D"]
 position = Vector2( 90, 267 )
+offset = 37.4855
 rotate = false
 loop = false
 

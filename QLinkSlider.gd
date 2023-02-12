@@ -1,6 +1,6 @@
 extends Path2D
 
-onready var path = curve.get_baked_points()
+#onready var path = curve.get_baked_points()
 
 onready var path_follow = $PathFollow2D
 
