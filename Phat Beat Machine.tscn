@@ -278,21 +278,15 @@ action_mode = 0
 texture_normal = ExtResource( 4 )
 
 [node name="iKnob" parent="." instance=ExtResource( 5 )]
-margin_left = 431.0
-margin_top = 43.0
-margin_right = 497.0
-margin_bottom = 109.0
-rect_scale = Vector2( 0.65, 0.52 )
+position = Vector2( 464, 76 )
+scale = Vector2( 0.65, 0.52 )
 
 [node name="mKnob" parent="." instance=ExtResource( 5 )]
-margin_left = 505.0
-margin_top = 43.0
-margin_right = 571.0
-margin_bottom = 109.0
-rect_scale = Vector2( 0.65, 0.52 )
+position = Vector2( 538, 76 )
+scale = Vector2( 0.65, 0.52 )
 
 [node name="spin" parent="mKnob" index="0"]
-texture = ExtResource( 25 )
+texture_normal = ExtResource( 25 )
 
 [node name="Ref" type="Sprite" parent="."]
 visible = false

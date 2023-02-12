@@ -26,8 +26,8 @@ var select : int = 0
 
 
 func _ready():
-	iKnob.spin.rotation_degrees = -179
-	mKnob.spin.rotation_degrees = -179
+	iKnob.spin.rect_rotation = -179
+	mKnob.spin.rect_rotation = -179
 
 
 func swapPath(orig:String, new:String):
