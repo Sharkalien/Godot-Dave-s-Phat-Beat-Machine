@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://images/phatbeatmachine.png" type="Texture" id=1]
 [ext_resource path="res://Phat Beat Machine.gd" type="Script" id=2]
@@ -140,7 +140,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 84, 304, 0, 0, 0, 0, 90, 267 )
 }
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=14]
 resource_local_to_scene = true
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 4
@@ -153,7 +153,21 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=15]
+resource_local_to_scene = true
+bg_color = Color( 0.780392, 0.988235, 0.45098, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.74, 0.95, 0.41, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=16]
 resource_local_to_scene = true
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 4
@@ -166,7 +180,21 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=17]
+resource_local_to_scene = true
+bg_color = Color( 0.780392, 0.988235, 0.45098, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.74, 0.95, 0.41, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=18]
 resource_local_to_scene = true
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 4
@@ -179,13 +207,41 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=19]
+resource_local_to_scene = true
+bg_color = Color( 0.780392, 0.988235, 0.45098, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.74, 0.95, 0.41, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=20]
 resource_local_to_scene = true
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=21]
+resource_local_to_scene = true
+bg_color = Color( 0.780392, 0.988235, 0.45098, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.74, 0.95, 0.41, 1 )
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -482,7 +538,9 @@ margin_left = 10.0
 margin_top = 456.0
 margin_right = 114.0
 margin_bottom = 517.0
-custom_styles/panel = SubResource( 8 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/normal = SubResource( 14 )
 
 [node name="AudioStreamPlayer" parent="Beats/JokeButton1" index="0"]
 stream = ExtResource( 33 )
@@ -492,7 +550,9 @@ margin_left = 191.0
 margin_top = 456.0
 margin_right = 295.0
 margin_bottom = 517.0
-custom_styles/panel = SubResource( 9 )
+custom_styles/hover = SubResource( 16 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/normal = SubResource( 16 )
 
 [node name="AudioStreamPlayer" parent="Beats/JokeButton2" index="0"]
 stream = ExtResource( 32 )
@@ -502,7 +562,9 @@ margin_left = 370.0
 margin_top = 456.0
 margin_right = 474.0
 margin_bottom = 517.0
-custom_styles/panel = SubResource( 10 )
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 19 )
+custom_styles/normal = SubResource( 18 )
 
 [node name="AudioStreamPlayer" parent="Beats/JokeButton3" index="0"]
 stream = ExtResource( 30 )
@@ -512,7 +574,9 @@ margin_left = 537.0
 margin_top = 456.0
 margin_right = 641.0
 margin_bottom = 517.0
-custom_styles/panel = SubResource( 11 )
+custom_styles/hover = SubResource( 20 )
+custom_styles/pressed = SubResource( 21 )
+custom_styles/normal = SubResource( 20 )
 
 [node name="AudioStreamPlayer" parent="Beats/JokeButton4" index="0"]
 stream = ExtResource( 31 )
