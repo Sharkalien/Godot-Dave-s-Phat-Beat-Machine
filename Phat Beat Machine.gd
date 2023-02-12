@@ -41,8 +41,8 @@ func swapPath(orig:String, new:String):
 			var stream = i.audPlayer.stream
 			stream.data = buffer
 			i.audPlayer.stream = stream
-			if !i.audPlayer.playing:
-				i.bButton.self_modulate = Color(1.00, 1.00, 1.00, 1.00)
+			if i.pressed:
+				i.pressed = false
 
 
 func _on_ProfessionalismButton_toggled(button_pressed):
@@ -66,13 +66,12 @@ func replaceSongs(songsArray:Array):
 			var stream = i.audPlayer.stream
 			stream.data = buffer
 			i.audPlayer.stream = stream
-			if !i.audPlayer.playing:
-				i.get("custom_styles/panel/StyleBoxFlat").set_bg_color(Color(1.00, 1.00, 1.00, 1.00))
-				i.get("custom_styles/panel/StyleBoxFlat").set_border_color(Color(0.8, 0.8, 0.8, 1.00))
+			if i.pressed:
+				i.pressed = false
 
 
-# for some reason, toggling the button while a track is playing will occasionaly freeze crash the game
-# only if certain buttons are toggled
+# for some reason, toggling the button while a track is playing will occasionaly freeze and crash the game
+# only if the first and last buttons are toggled alone or together
 func _on_CManButton_toggled(button_pressed):
 	if button_pressed:
 		replaceSongs(jokeSongsC)

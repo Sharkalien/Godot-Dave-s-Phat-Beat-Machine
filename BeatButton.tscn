@@ -7,9 +7,11 @@
 margin_right = 50.0
 margin_bottom = 29.0
 mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
 texture_normal = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[connection signal="pressed" from="." to="." method="_on_BeatButton_pressed"]
+[connection signal="toggled" from="." to="." method="_on_BeatButton_toggled"]
