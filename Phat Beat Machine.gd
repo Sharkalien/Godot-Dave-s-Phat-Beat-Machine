@@ -32,17 +32,11 @@ func _ready():
 
 func swapPath(orig:String, new:String):
 	for i in bbBeats:
+		if i.pressed:
+			i.pressed = false
 		var path = i.audPlayer.stream.resource_path.replace(orig, new)
 		print(path)
-		var file = File.new()
-		if file.file_exists(path):
-			file.open(path, File.READ)
-			var buffer = file.get_buffer(file.get_len())
-			var stream = i.audPlayer.stream
-			stream.data = buffer
-			i.audPlayer.stream = stream
-			if i.pressed:
-				i.pressed = false
+		i.audPlayer.stream = load(path)
 
 
 func _on_ProfessionalismButton_toggled(button_pressed):
@@ -56,22 +50,13 @@ func _on_ProfessionalismButton_toggled(button_pressed):
 
 func replaceSongs(songsArray:Array):
 	for i in jokeSongs:
-		#maybe I should yield while finding i's index in the jokeSongs array before continuing execution??
+		if i.pressed:
+			i.pressed = false
 		var path = i.audPlayer.stream.resource_path.replace(i.audPlayer.stream.resource_path, songsArray[jokeSongs.find(i,0)])
 		print(path)
-		var file = File.new()
-		if file.file_exists(path):
-			file.open(path, File.READ)
-			var buffer = file.get_buffer(file.get_len())
-			var stream = i.audPlayer.stream
-			stream.data = buffer
-			i.audPlayer.stream = stream
-			if i.pressed:
-				i.pressed = false
+		i.audPlayer.stream = load(path)
 
 
-# for some reason, toggling the button while a track is playing will occasionaly freeze and crash the game
-# only if the first and last buttons are toggled alone or together
 func _on_CManButton_toggled(button_pressed):
 	if button_pressed:
 		replaceSongs(jokeSongsC)
