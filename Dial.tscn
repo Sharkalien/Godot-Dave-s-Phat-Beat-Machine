@@ -23,4 +23,5 @@ texture_click_mask = ExtResource( 4 )
 flip_v = true
 
 [connection signal="button_down" from="spin" to="." method="_on_button_down"]
+[connection signal="button_up" from="spin" to="." method="_on_button_up"]
 [connection signal="gui_input" from="spin" to="." method="_on_gui_input"]

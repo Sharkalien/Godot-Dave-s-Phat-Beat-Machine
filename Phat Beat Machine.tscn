@@ -332,11 +332,11 @@ texture_normal = ExtResource( 4 )
 
 [node name="iKnob" parent="." instance=ExtResource( 5 )]
 position = Vector2( 465, 76 )
-scale = Vector2( 0.65, 0.52 )
+scale = Vector2( -0.65, 0.52 )
 
 [node name="mKnob" parent="." instance=ExtResource( 5 )]
 position = Vector2( 539, 76 )
-scale = Vector2( 0.65, 0.52 )
+scale = Vector2( -0.65, 0.52 )
 
 [node name="spin" parent="mKnob" index="0"]
 texture_normal = ExtResource( 25 )
