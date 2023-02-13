@@ -81,3 +81,8 @@ func _on_jokeButton_toggled(button_pressed: bool) -> void:
 func _on_MasterVol_gui_input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("click"):
 		AudioServer.set_bus_volume_db(0, linear2db((360 - (mKnob.spin.rect_rotation + 180)) / 360))
+
+
+func _on_IndividualVol_gui_input(_event: InputEvent) -> void:
+	if Input.is_action_pressed("click") and Global.curBeat:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(Global.curBeat.bus), linear2db((360 - (iKnob.spin.rect_rotation + 180)) / 360))

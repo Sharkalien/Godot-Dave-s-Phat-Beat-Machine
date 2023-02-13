@@ -19,7 +19,6 @@ func _mouseMove() -> void:
 	if rotDegrees > 0 && spin.rect_rotation < -90:
 		rotDegrees = -179.9
 	spin.rect_rotation = rotDegrees
-	print(rotDegrees)
 
 
 func _on_gui_input(_event: InputEvent) -> void:

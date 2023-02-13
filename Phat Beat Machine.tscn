@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://images/phatbeatmachine.png" type="Texture" id=1]
 [ext_resource path="res://Phat Beat Machine.gd" type="Script" id=2]
@@ -243,6 +243,48 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=22]
+resource_local_to_scene = true
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=23]
+resource_local_to_scene = true
+bg_color = Color( 0.780392, 0.988235, 0.45098, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.74, 0.95, 0.41, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="StyleBoxFlat" id=25]
+resource_local_to_scene = true
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 anti_aliasing = false
 
 [sub_resource type="DynamicFont" id=7]
@@ -620,6 +662,17 @@ custom_styles/normal = SubResource( 20 )
 [node name="AudioStreamPlayer" parent="Beats/JokeButton4" index="0"]
 stream = ExtResource( 31 )
 
+[node name="StopButton" type="Button" parent="."]
+margin_left = 515.0
+margin_top = 306.0
+margin_right = 544.0
+margin_bottom = 324.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/focus = SubResource( 24 )
+custom_styles/normal = SubResource( 25 )
+
 [node name="ProfessionalismButton" type="TextureButton" parent="."]
 self_modulate = Color( 0.780392, 0.988235, 0.45098, 1 )
 margin_left = 475.0
@@ -668,6 +721,7 @@ smoothing_enabled = true
 
 [connection signal="gui_input" from="Q1Path2D/PathFollow2D/Q1Slider" to="Q1Path2D" method="_on_QLSlider_gui_input"]
 [connection signal="gui_input" from="Q2Path2D/PathFollow2D/Q2Slider" to="Q2Path2D" method="_on_QLSlider_gui_input"]
+[connection signal="gui_input" from="iKnob/spin" to="." method="_on_IndividualVol_gui_input"]
 [connection signal="gui_input" from="mKnob/spin" to="." method="_on_MasterVol_gui_input"]
 [connection signal="toggled" from="Beats/BeatButton1" to="." method="_on_jokeButton_toggled"]
 [connection signal="toggled" from="Beats/BeatButton4" to="." method="_on_jokeButton_toggled"]
@@ -676,6 +730,7 @@ smoothing_enabled = true
 [connection signal="toggled" from="ProfessionalismButton" to="." method="_on_ProfessionalismButton_toggled"]
 [connection signal="toggled" from="CManButton" to="." method="_on_CManButton_toggled"]
 
+[editable path="iKnob"]
 [editable path="mKnob"]
 [editable path="Beats/BeatButton1"]
 [editable path="Beats/BeatButton2"]

@@ -1,6 +1,7 @@
 extends TextureButton
 
 onready var audPlayer:AudioStreamPlayer = $AudioStreamPlayer
+#onready var iKnobSpin:TextureButton = get_owner().get_node("iKnob/spin")
 
 
 #func _process(_delta: float) -> void:
@@ -25,3 +26,7 @@ func _on_BeatButton_toggled(button_pressed: bool) -> void:
 		self_modulate = Color(1.00, 1.00, 1.00, 1.00)
 		if !Global.prevBeat.playing:
 			Global.prevBeat = Global.curBeat
+#		if iKnobSpin.rect_rotation != -179:
+#			iKnobSpin.rect_rotation = -179
+#		else:
+#			Global.prevBeat = Global.curBeat
