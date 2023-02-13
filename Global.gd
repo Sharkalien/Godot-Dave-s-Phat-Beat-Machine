@@ -1,8 +1,8 @@
 extends Node
 
-var curBeat
-var prevBeat
+var curBeat : AudioStreamPlayer
+var prevBeat : AudioStreamPlayer
 
 
-func _ready() -> void:
-	pass
+#func _ready() -> void:
+#	pass
