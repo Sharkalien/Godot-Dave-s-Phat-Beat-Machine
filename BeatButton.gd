@@ -3,10 +3,10 @@ extends TextureButton
 onready var audPlayer:AudioStreamPlayer = $AudioStreamPlayer
 
 
-func _process(_delta: float) -> void:
-	if audPlayer.playing:
-		print(audPlayer.get_playback_position())
-		print(Global.prevBeat.stream)
+#func _process(_delta: float) -> void:
+#	if audPlayer.playing:
+#		print(audPlayer.get_playback_position())
+#		print(Global.prevBeat.stream)
 
 # think of prevBeat as refBeat, the beat used as reference
 func _on_BeatButton_toggled(button_pressed: bool) -> void:

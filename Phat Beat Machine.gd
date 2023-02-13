@@ -76,3 +76,8 @@ func _on_jokeButton_toggled(button_pressed: bool) -> void:
 			tween.tween_property(camera, "zoom", Vector2(1.25,1.25), 2.0)
 	else:
 		jokeBeats -= 1
+
+
+func _on_MasterVol_gui_input(_event: InputEvent) -> void:
+	if Input.is_action_pressed("click"):
+		AudioServer.set_bus_volume_db(0, linear2db((360 - (mKnob.spin.rect_rotation + 180)) / 360))
