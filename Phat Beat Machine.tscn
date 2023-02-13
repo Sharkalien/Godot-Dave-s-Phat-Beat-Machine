@@ -625,11 +625,14 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
-zoom = Vector2( 1.25, 1.25 )
 smoothing_enabled = true
 
 [connection signal="gui_input" from="Q1Path2D/PathFollow2D/Q1Slider" to="Q1Path2D" method="_on_QLSlider_gui_input"]
 [connection signal="gui_input" from="Q2Path2D/PathFollow2D/Q2Slider" to="Q2Path2D" method="_on_QLSlider_gui_input"]
+[connection signal="toggled" from="Beats/BeatButton1" to="." method="_on_jokeButton_toggled"]
+[connection signal="toggled" from="Beats/BeatButton4" to="." method="_on_jokeButton_toggled"]
+[connection signal="toggled" from="Beats/BeatButton13" to="." method="_on_jokeButton_toggled"]
+[connection signal="toggled" from="Beats/BeatButton16" to="." method="_on_jokeButton_toggled"]
 [connection signal="toggled" from="ProfessionalismButton" to="." method="_on_ProfessionalismButton_toggled"]
 [connection signal="toggled" from="CManButton" to="." method="_on_CManButton_toggled"]
 

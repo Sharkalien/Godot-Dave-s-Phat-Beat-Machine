@@ -6,6 +6,7 @@ onready var iKnob = $iKnob # individual sample volume
 var vols : Array = []
 var playin : Array = []
 var saves : Array = []
+
 onready var jokeSongs : Array = [$Beats/JokeButton1,$Beats/JokeButton2,$Beats/JokeButton3,$Beats/JokeButton4]
 var jokeSongsB : Array = [
 	"res://beats joke/mspa_harlequin.mp3",
@@ -20,6 +21,9 @@ var jokeSongsC : Array = [
 onready var bbBeats : Array = [
 	$Beats/BeatButton6,$Beats/BeatButton7,$Beats/BeatButton12,
 	$Beats/BeatButton13,$Beats/BeatButton14,$Beats/BeatButton15,$Beats/BeatButton16]
+onready var camera = $Camera2D
+
+var jokeBeats : int = 0
 var curFunc : int = 0
 var delay : int
 var select : int = 0
@@ -62,3 +66,13 @@ func _on_CManButton_toggled(button_pressed):
 		replaceSongs(jokeSongsC)
 	elif !button_pressed:
 		replaceSongs(jokeSongsB)
+
+
+func _on_jokeButton_toggled(button_pressed: bool) -> void:
+	if button_pressed:
+		jokeBeats += 1
+		if jokeBeats == 4 && camera.zoom == Vector2(1,1):
+			var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+			tween.tween_property(camera, "zoom", Vector2(1.25,1.25), 2.0)
+	else:
+		jokeBeats -= 1
