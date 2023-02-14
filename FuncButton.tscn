@@ -11,6 +11,7 @@ rect_scale = Vector2( 0.4, 0.3 )
 mouse_default_cursor_shape = 2
 toggle_mode = true
 shortcut_in_tooltip = false
+action_mode = 0
 texture_pressed = ExtResource( 2 )
 texture_disabled = ExtResource( 2 )
 script = ExtResource( 1 )

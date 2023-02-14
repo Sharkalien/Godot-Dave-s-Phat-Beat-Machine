@@ -21,6 +21,7 @@ onready var camera = $Camera2D
 
 var jokeBeats : int = 0
 var select : int = 0
+onready var beats : Array = $Beats.get_children()
 
 
 func _ready():
@@ -33,7 +34,7 @@ func swapPath(orig:String, new:String):
 		if i.pressed:
 			i.pressed = false
 		var path = i.audPlayer.stream.resource_path.replace(orig, new)
-		print(path)
+#		print(path)
 		i.audPlayer.stream = load(path)
 
 
@@ -51,7 +52,7 @@ func replaceSongs(songsArray:Array):
 		if i.pressed:
 			i.pressed = false
 		var path = i.audPlayer.stream.resource_path.replace(i.audPlayer.stream.resource_path, songsArray[jokeSongs.find(i,0)])
-		print(path)
+#		print(path)
 		i.audPlayer.stream = load(path)
 
 
@@ -80,3 +81,9 @@ func _on_MasterVol_gui_input(_event: InputEvent) -> void:
 func _on_IndividualVol_gui_input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("click") and Global.curBeat:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(Global.curBeat.bus), linear2db((360 - (iKnob.spin.rect_rotation + 180)) / 360))
+
+
+func _on_StopButton_pressed() -> void:
+	for beat in beats:
+		if beat.pressed:
+			beat.pressed = false
