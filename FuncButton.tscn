@@ -12,4 +12,7 @@ mouse_default_cursor_shape = 2
 toggle_mode = true
 shortcut_in_tooltip = false
 texture_pressed = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
 script = ExtResource( 1 )
+
+[connection signal="toggled" from="." to="." method="_on_FuncButton_toggled"]
