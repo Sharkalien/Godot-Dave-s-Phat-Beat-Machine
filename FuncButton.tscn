@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://FuncButton.gd" type="Script" id=1]
+[ext_resource path="res://images/button.png" type="Texture" id=2]
+
+[node name="FuncButton" type="TextureButton"]
+self_modulate = Color( 0.780392, 0.988235, 0.45098, 1 )
+margin_right = 50.0
+margin_bottom = 29.0
+rect_scale = Vector2( 0.4, 0.3 )
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+texture_pressed = ExtResource( 2 )
+script = ExtResource( 1 )

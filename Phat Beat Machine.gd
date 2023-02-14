@@ -3,10 +3,6 @@ extends Node2D
 onready var mKnob = $mKnob # master volume
 onready var iKnob = $iKnob # individual sample volume
 
-var vols : Array = []
-var playin : Array = []
-var saves : Array = []
-
 onready var jokeSongs : Array = [$Beats/JokeButton1,$Beats/JokeButton2,$Beats/JokeButton3,$Beats/JokeButton4]
 var jokeSongsB : Array = [
 	"res://beats joke/mspa_harlequin.mp3",
@@ -24,8 +20,6 @@ onready var bbBeats : Array = [
 onready var camera = $Camera2D
 
 var jokeBeats : int = 0
-var curFunc : int = 0
-var delay : int
 var select : int = 0
 
 
