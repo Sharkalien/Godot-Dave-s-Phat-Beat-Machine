@@ -1,7 +1,7 @@
 extends TextureButton
 
 onready var audPlayer:AudioStreamPlayer = $AudioStreamPlayer
-#onready var iKnobSpin:TextureButton = get_owner().get_node("iKnob/spin")
+onready var iKnobSpin:TextureButton = get_owner().get_node("iKnob/spin")
 
 
 #func _process(_delta: float) -> void:
@@ -17,6 +17,8 @@ func _on_BeatButton_toggled(button_pressed: bool) -> void:
 			Global.prevBeat = Global.curBeat
 		if Global.prevBeat:
 			audPlayer.play(Global.prevBeat.get_playback_position())
+			var curBus = AudioServer.get_bus_index(Global.curBeat.bus)
+			iKnobSpin.rect_rotation = 360 - db2linear(AudioServer.get_bus_volume_db(curBus)) * 360 - 180
 		else:
 			audPlayer.play()
 			print("fail")
@@ -26,7 +28,5 @@ func _on_BeatButton_toggled(button_pressed: bool) -> void:
 		self_modulate = Color(1.00, 1.00, 1.00, 1.00)
 		if !Global.prevBeat.playing:
 			Global.prevBeat = Global.curBeat
-#		if iKnobSpin.rect_rotation != -179:
-#			iKnobSpin.rect_rotation = -179
 #		else:
 #			Global.prevBeat = Global.curBeat

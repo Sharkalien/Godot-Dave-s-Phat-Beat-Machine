@@ -20,7 +20,6 @@ onready var bbBeats : Array = [
 onready var camera = $Camera2D
 
 var jokeBeats : int = 0
-var select : int = 0
 onready var beats : Array = $Beats.get_children()
 
 
