@@ -1,5 +1,5 @@
 # Godot Dave's Phat Beat Machine
-Dave's phat beat machine flash from [Homestuck](https://www.homestuck.com/story/338) recreated in Godot (v3.5.1)
+Dave's phat beat machine flash from [Homestuck](https://www.homestuck.com/story/338) recreated in Godot (v3.6.1)
 
 # Omitted tracks
 The joke songs are missing from this repository because I didn't want to risk incurring the wrath of any DMCA devils:
